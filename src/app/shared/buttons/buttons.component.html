@@ -1,0 +1,25 @@
+@if(return) {
+    <button [routerLink]="['/home']" class="btn btn-light py-1 me3 rounded">
+      <figure>
+        <img class="icon img-fluid" src="./images/volver.png" alt="Volver" />
+      </figure>
+      Volver</button>
+  }@else {
+    <button [routerLink]="['/userView',myUser?._id]" class="btn btn-light py-1 me3 rounded">
+      <figure>
+        <img class="icon img-fluid" src="./images/lupa.png" alt="Ver Perfil" />
+      </figure>Ver Perfil
+    </button>
+  }
+  <button [routerLink]="['/updateUser',myUser?._id]" class="btn btn-light py-1 me3 rounded">
+    <figure>
+      <img class="icon img-fluid" src="./images/actualizar.png" alt="Actualizar" />
+    </figure>
+    Actualizar</button>
+<button class="btn btn-light py-1 me3 rounded" 
+[swal]="{title: 'Confirmación', text: '¿Deseas eliminar este usuario?', showCancelButton: true}"
+(confirm)="deleteUser(myUser?._id)">
+  <figure>
+    <img class="icon img-fluid" src="./images/eliminar.png" alt="Eliminar" />
+  </figure>
+  Eliminar</button>
