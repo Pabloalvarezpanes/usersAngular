@@ -1,1 +1,24 @@
-<p>user-view works!</p>
+<section>
+    <div class="d-flex justify-content-between">
+        <h2>Información del usuario</h2>
+    </div>
+    <hr>
+    <div class="container clearfix">
+        <div class=" row g-0">
+            <div class="col-sm-3 col-md-5 border-end border-3 border-dark p-3">
+                <img [src]="myUser?.image" [alt]="myUser?._id" class="img-fluid md-5 rounded-circle">
+            </div>
+            <div class="ms-5 col-7 col-md-6">
+                    <div>
+                        <h2 class="">Nombre del usuario: {{myUser?.first_name}}</h2>
+                        <h3 class="mt-4">Apellido del usuario: {{myUser?.last_name}}</h3>
+                        <p class="mt-4"><strong>Nombre de usuario:</strong> {{myUser?.username}}</p>
+                        <p class="mt4"><strong>Email de usuario:</strong> {{myUser?.email}}</p>
+                        <div class="mt-4">
+                        <app-buttons [myUser]="myUser" [return]="true"></app-buttons>
+                    </div>
+                    </div>
+            </div>
+    </div>
+</div>
+</section>
