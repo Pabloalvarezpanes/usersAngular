@@ -18,6 +18,14 @@ export class UsersService {
   getPag(url: string): Promise<IResponse> {
     return lastValueFrom(this.httpClient.get<IResponse>(url));
   }
+
+  getById(id: string): Promise<any> {
+    return lastValueFrom(this.httpClient.get(`${this.baseurl}/${id}`));
+  }
+
+  delete(id: string): Promise<any> {
+    return lastValueFrom(this.httpClient.delete(`${this.baseurl}/${id}`));
+  }
   
 
 }

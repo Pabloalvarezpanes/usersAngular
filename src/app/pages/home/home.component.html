@@ -1,6 +1,8 @@
 <section class="container-fluid my-5">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
         @for (unUser of arrUsers; track unUser._id) {
+            <article app-total-users [myUser]="unUser" (deleteUserEmit)="deleteUser($event)" class="col">
+            </article>
         }
     </div>
     <div class="d-flex justify-content-center my-5 gap-4">

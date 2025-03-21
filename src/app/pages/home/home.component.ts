@@ -2,10 +2,12 @@ import { Component, inject, Input } from '@angular/core';
 import { IUser } from '../../interfaces/iuser.interface';
 import { IResponse } from '../../interfaces/iresponse.interface';
 import { UsersService } from '../../services/users.service';
+import { RouterLink } from '@angular/router';
+import { TotalUsersComponent } from '../../shared/total-users/total-users.component';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [RouterLink, TotalUsersComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -54,5 +56,11 @@ export class HomeComponent {
       this.arrUsers = response.results;
     } catch (error){}
   }
+
+  deleteUser(event: Boolean){
+    if(event){
+      this.chargeUsers();
+  } 
+}
 
 }

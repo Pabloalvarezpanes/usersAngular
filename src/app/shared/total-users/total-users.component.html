@@ -1,1 +1,15 @@
-<p>total-users works!</p>
+<div class="card shadow">
+    <div>
+      <img
+        [src]="myUser.image"
+        [alt]="myUser._id"
+        class="ratio ratio-1x1 rounded-circle overflow-hidden card-img-top img-cover"
+      />
+    </div>
+    <div class="card-body text-center">
+      <h3>{{ myUser.username }}</h3>
+    </div>
+  <div class="card-footer text-center align-items-center">
+        <app-buttons [myUser]="myUser" (deleteUserEmit)="deleteUser($event)" ></app-buttons>
+    </div>
+  </div>
