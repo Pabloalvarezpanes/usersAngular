@@ -1,33 +1,34 @@
 <section class="containers">
-    <h1 class="text-center my-5">Registrar Usuarios</h1>
+    <h1 class="text-center my-5">{{title}} Usuarios</h1>
     <hr>
 <form class="mx-auto mt-5" style="max-width: 900px;" [formGroup]="userForm" (ngSubmit)="getDataForm()">
-    <div>
-    <label for="_id"></label>
-    <input type="hidden" id="_id" formControlName="_id">
-</div>
+    <input type="hidden" formControlName="_id">
     <div class="form-group mb-3">
         <label for="first_name">Nombre Usuario</label>
         <input type="text" class="form-control" id="first_name" placeholder="Ingrese el nombre de usuario" formControlName="first_name">
+        <div class="alert alert-danger" *ngIf="checkControl('first_name', 'required')">Este campo es obligatorio.</div>
 
     </div>
     <div class="form-group mb-3">
         <label for="last_name">Apellido Usuario</label>
         <input type="text" class="form-control" id="last_name" placeholder="Ingrese el apellido de usuario" formControlName="last_name">
+        <div class="alert alert-danger" *ngIf="checkControl('last_name', 'required')">Este campo es obligatorio.</div>
 
     </div>
     <div class="form-group mb-3">
         <label for="email">Email Usuario</label>
         <input type="text" class="form-control" id="email" placeholder="Ingrese el email de usuario" formControlName="email">
+        <div class="alert alert-danger" *ngIf="checkControl('email', 'email')">El email no es válido.</div>
 
     </div>
     <div class="form-group mb-3">
         <label for="image">Imagen Usuario</label>
         <input type="text" class="form-control" id="image" placeholder="Ingrese la URL de imagen de usuario" formControlName="image">
+        <div class="alert alert-danger" *ngIf="checkControl('image', 'required')">La imagen es obligatoria.</div>
 
     </div>
     <div class="form-group mb-3">
-        <input type="submit" class="btn btn-primary" [value]="userForm.get('_id')?.value ? 'Actualizar' : 'Registrar'">
+        <input type="submit" class="btn btn-primary" [value]="userForm.get('_id')?.value ? 'Actualizar' : 'Registrar'" [disabled]="userForm.invalid">
     </div>
     
 </form>

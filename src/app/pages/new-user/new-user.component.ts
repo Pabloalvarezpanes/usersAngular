@@ -31,10 +31,10 @@ export class NewUserComponent {
 
     this.userForm = new FormGroup({
       _id: new FormControl(this.idUser || null,[]),
-      last_name: new FormControl(this.myUser?.last_name || null, []),
-      first_name: new FormControl(this.myUser?.first_name || null ,[]),
-      email: new FormControl(this.myUser?.email || null,[]),
-      image: new FormControl(this.myUser?.image || null,[]),
+      last_name: new FormControl(this.myUser?.last_name || null, [Validators.required]),
+      first_name: new FormControl(this.myUser?.first_name || null ,[Validators.required]),
+      email: new FormControl(this.myUser?.email || null,[Validators.required, Validators.email]),
+      image: new FormControl(this.myUser?.image || null,[Validators.required]),
     },[]);
   }
 
