@@ -7,7 +7,7 @@ import { TotalUsersComponent } from '../../shared/total-users/total-users.compon
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, TotalUsersComponent],
+  imports: [TotalUsersComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
